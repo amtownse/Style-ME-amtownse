@@ -2,45 +2,83 @@
 using namespace std;
 
 class temp {
-    double f;
+private:
+    double fahrenheit;
 public:
-    temp() : f(32) {}
-    double getf() {return f;}
-    void setf(double p)
-    { f = p;}
-    double getc() const {
-        return (f-32)*(5/9);        // NEED TO FIX
+    /**constructor
+     *
+     */
+    temp(){
+        this->fahrenheit=32;
     }
-    void setc(int c) { f=(c*(9/5)+32);} //BUGGY
+
+    /**A function to get the current temperature in degrees fahrenheit
+    * @return temperature in degrees fahrenheit
+    */
+    double getf() {
+        return this->fahrenheit;
+    }
+
+    /**A function to set the temperature given a temperature in fahrenheit
+    * @param f the temperature in degrees fahrenheit
+    */
+    void setf(double fahrenheit){
+        this->fahrenheit = fahrenheit;
+    }
+
+    /**A function to get the current temperature in degrees celsius
+     * @return temperature in degrees celsius
+     */
+    double getc(){
+        return (this->fahrenheit-32)*5/9;
+    }
+
+    /**A function to set the temperature given a temperature in celsius
+     * @param celsius the temperature in degrees celsius
+     */
+    void setc(double celsius) {
+        this->fahrenheit=(celsius*9/5+32);
+    }
 };
 
 int main() {
-    int choice = 0;
-    while (!(cin >> choice))
+    double choice = 0;
+
+    //prompt the user for a number 1 or 2
+    cout << "Would you like to enter a temperature in fahrenheit(1) or celsius(2):" << endl;
+
+    //define the variable to hold the garbage from invalid lines
+    string junk;
+
+    //get a valid response from the user, valid response being either 1 or 2
+    while (!(cin >> choice) || (choice!=1 && choice!=2))
     {
+        cout << "Please enter either '1' or '2'" << endl;
         cin.clear();
-        string junk;
         getline(cin, junk);
     }
-    int t = 0;
-    while (!(cin >> t)) {
+
+    //clear the input line
+    getline(cin, junk);
+
+    //prompt the user for a temperature
+    cout << ((choice==1) ? "Enter the temperature in degrees fahrenheit" : "Enter the temperature in degrees celsius") << endl;
+
+    //get a valid temperature from the user
+    double tempInput = 0;
+    while (!(cin >> tempInput)) {
         cin.clear();
-        string junk;
         getline(cin, junk);
     }
+
+    //create the temp object and put in the temperature, taking into account the choice the user made earlier
     temp mytemp;
-    (choice == 1) ? mytemp.setf(t) : mytemp.setc(t);
-//    if (choice == 1)
-//        mytemp.setf(t);
-//    else
-//        mytemp.setc(t);
-    string a;
-    if (mytemp.getc() < 0)
-        a="cold";
-    else if (mytemp.getc() > 30)
-        a="hot";
-    else
-        a="beautiful";
-    cout << "Hello, " << a << " World!" << endl;
+    (choice == 1) ? mytemp.setf(tempInput) : mytemp.setc(tempInput);
+
+    //determine what the weather is like
+    string weather = (mytemp.getc() < 0) ? "cold" : (mytemp.getc() > 30) ? "hot" : "beautiful";
+
+    //print out the results
+    cout << "Hello, " << weather << " World!" << endl;
     return 0;
 }
