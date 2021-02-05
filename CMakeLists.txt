@@ -3,4 +3,4 @@ project(Style-Me)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Style-Me main.cpp)
+add_executable(Style-Me main.cpp temp.h temp.cpp)
