@@ -82,11 +82,12 @@ Remember to commit and push frequently.
 This project is due on Gradescope by 11:59pm ET on Friday, February 19th.
 
 ### Grading Rubric
-- [ ] (2 pts) Correct and consistent braces.
-- [ ] (2 pts) Correct and consistent cases.
-- [ ] (2 pts) Correct and consistent comments.
-- [ ] (2 pts) Correct and consistent variables.
-- [ ] (3 pts) All other style choices are correct and consistent.
-- [ ] (3 pts) Create header file with appropriate code.
-- [ ] (3 pts) Create corresponding .cpp file with appropriate code.
-- [ ] (3 pts) Create a global function in main with consistent style.
+- [x] (2 pts) Correct and consistent braces.
+- [x] (2 pts) Correct and consistent cases.
+- [x] (2 pts) Correct and consistent comments.
+- [x] (2 pts) Correct and consistent variables.
+- [x] (3 pts) All other style choices are correct and consistent.
+- [x] (3 pts) Create header file with appropriate code.
+- [x] (3 pts) Create corresponding .cpp file with appropriate code.
+- [x] (3 pts) Create a global function in main with consistent style.
+:)

@@ -3,9 +3,9 @@
 #include "temp.h"
 using namespace std;
 
-double MPH_KPH_CONVERSION = 1.609344;
+double const MPH_KPH_CONVERSION = 1.609344;
 
-/**A function to calculate wind chill with parts from code written in cs021
+/**A function to calculate wind chill with parts from code written by Qamar and I in cs021
  *
  * @param choice whether it is celsius or fahrenheit
  * @param temperature in fahrenheit
@@ -43,17 +43,17 @@ int main() {
     }
 
     //create the temp object and put in the temperature, taking into account the choice the user made earlier
-    temp mytemp;
-    (choice == 1) ? mytemp.setFahrenheit(tempInput) : mytemp.setCelsius(tempInput);
+    temp myTemp;
+    (choice == 1) ? myTemp.setFahrenheit(tempInput) : myTemp.setCelsius(tempInput);
 
     //determine what the weather is like
-    string weather = (mytemp.getCelsius() < 0) ? "cold" : (mytemp.getCelsius() > 30) ? "hot" : "beautiful";
+    string weather = (myTemp.getCelsius() < 0) ? "cold" : (myTemp.getCelsius() > 30) ? "hot" : "beautiful";
 
     //print out the results
-    cout << "Hello, " << weather << " World!" << mytemp.getFahrenheit() << endl;
+    cout << "Hello, " << weather << " World!" << myTemp.getFahrenheit() << endl;
 
     //call windchill
-    FindWindChill(choice, mytemp.getFahrenheit());
+    FindWindChill(choice, myTemp.getFahrenheit());
 
     return 0;
 }
